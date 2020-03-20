@@ -286,3 +286,4 @@ export default class DiDemo extends React.Component<IDiDemoProps, IDiDemoState> 
 
 ## Version
 * 1.0.0: init version
+* 1.0.1: change package name to ezcode-spfx-di
