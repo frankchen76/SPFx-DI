@@ -269,7 +269,7 @@ export default class DiDemo extends React.Component<IDiDemoProps, IDiDemoState> 
 
 ```
 
-### Building the code
+## Building the code
 * install packages
   * If you install from npm repo, type `npm install --package-lock` to regenerate package-lock.json
   * If you install from your private repo:
@@ -283,3 +283,6 @@ export default class DiDemo extends React.Component<IDiDemoProps, IDiDemoState> 
 * build code: `npm run build`
 * register your npm repository: `npm run refreshVSToken`
 * publish your code: `npm publish`
+
+## Version
+* 1.0.0: init version
