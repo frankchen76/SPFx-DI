@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": true,
+        //"sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "outDir": "./lib",
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "typeRoots": [
+            "./node_modules/@types",
+        ],
+        "lib": [
+            "es5",
+            "dom",
+            "es2015.collection"
+        ]
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/__tests__/*"
+    ]
+}

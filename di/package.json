@@ -1,0 +1,36 @@
+{
+    "name": "@ezcode/spfx-di",
+    "version": "1.0.0",
+    "description": "A Dependency Injection library for SPFx project",
+    "homepage": "https://github.com/frankchen76/SPFx-DI/di",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "files": [
+        "lib/**/*"
+    ],
+    "scripts": {
+        "build": "npm run clean && tsc",
+        "tsc": "tsc",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "clean": "rimraf lib",
+        "refreshVSToken": "vsts-npm-auth -config .npmrc"
+    },
+    "keywords": [
+        "SPO",
+        "Entity",
+        "EZCode"
+    ],
+    "author": "Frank Chen",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "^4.0.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-typescript": "^5.0.1",
+        "typescript": "^3.3.1",
+        "rimraf": "^2.6.3"
+    },
+    "dependencies": {
+        "inversify": "^5.0.1",
+        "reflect-metadata": "^0.1.13"
+    }
+}
