@@ -7,7 +7,7 @@ import { OrderPanel } from '../../../components/panel/OrderPanel';
 
 import "reflect-metadata";
 import { IOrderService, IInventoryService, mainContainer, TYPES } from '../../../services';
-import { PropertyInject, InjectAutoInit } from '@ezcode/spfx-di/lib';
+import { PropertyInject, InjectAutoInit } from 'ezcode-spfx-di/lib';
 import { IDiDemoState } from './IDiDemoState';
 
 @InjectAutoInit

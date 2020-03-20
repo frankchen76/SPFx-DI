@@ -2,7 +2,7 @@ import { EnvironmentType, Environment } from '@microsoft/sp-core-library';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 
 import 'reflect-metadata';
-import { SPFxContainer } from '@ezcode/spfx-di/lib';
+import { SPFxContainer } from 'ezcode-spfx-di/lib';
 import { SPOInventoryService, MockInventoryService } from '.';
 import { MockOrderService } from './order/MockOrderService';
 import { SPOOrderService } from './order/SPOOrderService';

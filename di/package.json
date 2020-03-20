@@ -1,6 +1,6 @@
 {
-    "name": "@ezcode/spfx-di",
-    "version": "1.0.0",
+    "name": "ezcode-spfx-di",
+    "version": "1.0.1",
     "description": "A Dependency Injection library for SPFx project",
     "homepage": "https://github.com/frankchen76/SPFx-DI/di",
     "main": "./lib/index.js",

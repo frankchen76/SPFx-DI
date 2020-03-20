@@ -1,13 +1,13 @@
-# @ezcode/spfx-di
+# ezcode-spfx-di
 
 ## Introduction
 
-@ezcode/spfx-di is a component to help developers to create Service by using dependency injection. 
+ezcode-spfx-di is a component to help developers to create Service by using dependency injection. 
 
 ## Usage
-1. reference @ezcode/spfx-di by using
-   * `npm link @ezcode/spfx-di` if you use npm link 
-   * `npm install @ezcode/spfx-di --save` if you use it from npm repository. 
+1. reference ezcode-spfx-di by using
+   * `npm link ezcode-spfx-di` if you use npm link 
+   * `npm install ezcode-spfx-di --save` if you use it from npm repository. 
 2. install the following required npm packages: 
 ```bash
 npm install inversify reflect-metadata --save
@@ -17,7 +17,7 @@ npm install inversify reflect-metadata --save
 4. add "src/services/Orders/IOrderService.ts"
    
 ```Typescript
-import { IServiceBase } from '@ezcode/spfx-di/lib';
+import { IServiceBase } from 'ezcode-spfx-di/lib';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { IOrderListItem } from './IOrderListItem';
 
@@ -32,7 +32,7 @@ import { IOrderService } from './IOrderService';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { injectable, inject } from 'inversify';
 import { IInventoryService } from '../index';
-import { ServiceFactory, IServiceFactory } from '@ezcode/spfx-di/lib';
+import { ServiceFactory, IServiceFactory } from 'ezcode-spfx-di/lib';
 import { IOrderListItem } from './IOrderListItem';
 
 @injectable()
@@ -68,7 +68,7 @@ export class MockOrderService implements IOrderService {
 import { IOrderService } from './IOrderService';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { injectable, inject } from 'inversify';
-import { ServiceFactory, IServiceFactory } from '@ezcode/spfx-di/lib';
+import { ServiceFactory, IServiceFactory } from 'ezcode-spfx-di/lib';
 import { IInventoryService } from '../Inventory/IInventoryService';
 import { IOrderListItem } from './IOrderListItem';
 import { sp } from "@pnp/sp";
@@ -109,7 +109,7 @@ import { EnvironmentType, Environment } from '@microsoft/sp-core-library';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 
 import 'reflect-metadata';
-import { SPFxContainer } from '@ezcode/spfx-di/lib';
+import { SPFxContainer } from 'ezcode-spfx-di/lib';
 import { SPOInventoryService, MockInventoryService } from '.';
 import { MockOrderService } from './order/MockOrderService';
 import { SPOOrderService } from './order/SPOOrderService';
@@ -204,7 +204,7 @@ import { PrimaryButton, autobind } from 'office-ui-fabric-react';
 
 import "reflect-metadata";
 import { IOrderService, IInventoryService, mainContainer, TYPES } from '../../../services';
-import { PropertyInject, InjectAutoInit } from '@ezcode/spfx-di/lib';
+import { PropertyInject, InjectAutoInit } from 'ezcode-spfx-di/lib';
 import { IDiDemoState } from './IDiDemoState';
 
 // Add "InjectAutoInit" attribute
