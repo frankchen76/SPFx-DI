@@ -5,7 +5,7 @@ import { TestImages } from '@uifabric/example-data';
 
 import "reflect-metadata";
 import { IOrderService, mainContainer, TYPES } from '../../services';
-import { PropertyInject, InjectAutoInit } from 'ezcode-spfx-di/lib';
+import { PropertyInject, InjectAutoInit } from '@ezcode/spfx-di/lib';
 import { IOrderListItem } from '../../services/order/IOrderListItem';
 
 export interface IOrderChoicesComponentProps {

@@ -12,7 +12,7 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "ezcode-spfx-di": "^1.0.1",
+    "@ezcode/spfx-di": "^1.0.0",
     "@microsoft/sp-core-library": "1.10.0",
     "@microsoft/sp-lodash-subset": "1.10.0",
     "@microsoft/sp-office-ui-fabric-core": "1.10.0",

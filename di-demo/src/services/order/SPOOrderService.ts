@@ -1,7 +1,7 @@
 import { IOrderService } from './IOrderService';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { injectable, inject } from 'inversify';
-import { ServiceFactory, IServiceFactory } from 'ezcode-spfx-di/lib';
+import { ServiceFactory, IServiceFactory } from '@ezcode/spfx-di/lib';
 import { IInventoryService } from '../Inventory/IInventoryService';
 import { IOrderListItem } from './IOrderListItem';
 import { sp } from "@pnp/sp";
