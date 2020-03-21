@@ -281,10 +281,15 @@ export default class DiDemo extends React.Component<IDiDemoProps, IDiDemoState> 
     * Authenticate your private repo by running: `npm run refreshVSToken`
     * install pacakages by running `npm install --package-locak` to regenerate package-lock.json
 * build code: `npm run build`
-* register your npm repository: `npm run refreshVSToken`
-* publish your code: `npm publish`
+* publish to private repo
+  * register your npm repository: `npm run refreshVSToken`
+  * publish it: `npm publish`
+* publish to npm public repo
+  * login to npm: `npm login`
+  * publish it: `npm publish --access public`
 
 ## Version
 * 1.0.0: init version ezcode-spfx-di
 * 1.0.1: 
 * 1.0.0: rename to @ezcode/spfx-di
+* 1.0.1: updated homepage to point to right github repo
