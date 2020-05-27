@@ -7,7 +7,7 @@ import { IOrderListItem } from './IOrderListItem';
 
 @injectable()
 export class MockOrderService implements IOrderService {
-  public webPartContext: WebPartContext;
+  public context: WebPartContext;
   private _invnetoryService: IInventoryService;
 
   constructor(

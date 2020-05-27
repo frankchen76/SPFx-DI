@@ -27,7 +27,7 @@ export default class DiDemoWebPart extends BaseClientSideWebPart<IDiDemoWebPartP
         spfxContext: this.context
       });
 
-      mainContainer.registerWebPartContext(this.context);
+      mainContainer.registerContext(this.context.serviceScope);
     });
     // await super.onInit();
     // // other init code may be present

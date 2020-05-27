@@ -7,6 +7,8 @@
 ## Usage
 1. reference @ezcode/spfx-di by using
    * `npm link @ezcode/spfx-di` if you use npm link 
+     * Go to spfx-di/di folder and run `npm link` to host the lib at source folder.
+     * Go to spfx-di/di-demo folder and run `npm link @ezcode/spfx-di` to reference the lib from source folder. 
    * `npm install @ezcode/spfx-di --save` if you use it from npm repository. 
 2. install the following required npm packages: 
 ```bash
@@ -18,10 +20,10 @@ npm install inversify reflect-metadata --save
    
 ```Typescript
 import { IServiceBase } from '@ezcode/spfx-di/lib';
-import { WebPartContext } from '@microsoft/sp-webpart-base';
+import { ServiceScope } from "@microsoft/sp-core-library";
 import { IOrderListItem } from './IOrderListItem';
 
-export interface IOrderService extends IServiceBase<WebPartContext> {
+export interface IOrderService extends IServiceBase<ServiceScope> {
   getOrders(): Promise<IOrderListItem[]>;
 }
 
@@ -29,7 +31,7 @@ export interface IOrderService extends IServiceBase<WebPartContext> {
 5. add "src/services/Orders/MockOrderService.ts"
 ```Typescript
 import { IOrderService } from './IOrderService';
-import { WebPartContext } from '@microsoft/sp-webpart-base';
+import { ServiceScope } from "@microsoft/sp-core-library";
 import { injectable, inject } from 'inversify';
 import { IInventoryService } from '../index';
 import { ServiceFactory, IServiceFactory } from '@ezcode/spfx-di/lib';
@@ -37,7 +39,7 @@ import { IOrderListItem } from './IOrderListItem';
 
 @injectable()
 export class MockOrderService implements IOrderService {
-  public webPartContext: WebPartContext;
+  public context: ServiceScope;
   private _invnetoryService: IInventoryService;
 
   //if you want to inject other services in this service
@@ -66,7 +68,8 @@ export class MockOrderService implements IOrderService {
 6. add "src/services/Orders/SPOOrderService.ts"
 ```Typescript
 import { IOrderService } from './IOrderService';
-import { WebPartContext } from '@microsoft/sp-webpart-base';
+import { ServiceScope } from "@microsoft/sp-core-library";
+import { MSGraphClientFactory } from '@microsoft/sp-http';
 import { injectable, inject } from 'inversify';
 import { ServiceFactory, IServiceFactory } from '@ezcode/spfx-di/lib';
 import { IInventoryService } from '../Inventory/IInventoryService';
@@ -78,7 +81,7 @@ import "@pnp/sp/items";
 
 @injectable()
 export class SPOOrderService implements IOrderService {
-  public webPartContext: WebPartContext;
+  public context: ServiceScope;
   private _invnetoryService: IInventoryService;
   //if you want to 
   constructor(
@@ -88,6 +91,9 @@ export class SPOOrderService implements IOrderService {
     this._invnetoryService = inventoryServiceFactory();
   }
   public getOrders(): Promise<IOrderListItem[]> {
+    //Get MSGraphClientFactory
+    const msFactory = this.context.consume<MSGraphClientFactory>(MSGraphClientFactory.serviceKey);
+
     console.log(this._invnetoryService.getInventory());
     return sp.web.lists.getByTitle('OrderList').items.getAll()
       .then(result => {
@@ -106,7 +112,7 @@ export class SPOOrderService implements IOrderService {
 7. add "src/services/inversify.config.ts" to register your service classes. 
 ```Typescript
 import { EnvironmentType, Environment } from '@microsoft/sp-core-library';
-import { WebPartContext } from '@microsoft/sp-webpart-base';
+import { ServiceScope } from "@microsoft/sp-core-library";
 
 import 'reflect-metadata';
 import { SPFxContainer } from '@ezcode/spfx-di/lib';
@@ -119,7 +125,7 @@ export const TYPES = {
   OrderService: 'IOrderService'
 };
 
-export const mainContainer = new SPFxContainer<WebPartContext>([
+export const mainContainer = new SPFxContainer<ServiceScope>([
   {
     serviceKey: TYPES.InventoryService,
     serviceItems: [
@@ -165,7 +171,7 @@ export default class DiDemoWebPart extends BaseClientSideWebPart<IDiDemoWebPartP
         spfxContext: this.context
       });
 
-      mainContainer.registerWebPartContext(this.context);
+      mainContainer.registerContext(this.context.serviceScope);
     });
     // await super.onInit();
     // // other init code may be present
@@ -293,3 +299,4 @@ export default class DiDemo extends React.Component<IDiDemoProps, IDiDemoState> 
 * 1.0.1: 
 * 1.0.0: rename to @ezcode/spfx-di
 * 1.0.1: updated homepage to point to right github repo
+* 1.0.2: updated context from WebPartContext to generic in IServiceBase. It allows to pass different type context other than WebPartContext, such as ServiceScope.

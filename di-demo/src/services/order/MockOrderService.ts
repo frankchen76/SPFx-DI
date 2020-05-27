@@ -1,13 +1,13 @@
 import { IOrderService } from './IOrderService';
-import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { injectable, inject } from 'inversify';
 import { IInventoryService } from '../index';
 import { ServiceFactory, IServiceFactory } from '@ezcode/spfx-di/lib';
 import { IOrderListItem } from './IOrderListItem';
+import { ServiceScope } from '@microsoft/sp-core-library';
 
 @injectable()
 export class MockOrderService implements IOrderService {
-  public webPartContext: WebPartContext;
+  public context: ServiceScope;
   private _invnetoryService: IInventoryService;
 
   constructor(

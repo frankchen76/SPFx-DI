@@ -4,8 +4,8 @@ import { WebPartContext } from "@microsoft/sp-webpart-base";
 
 @injectable()
 export class MockInventoryService implements IInventoryService {
-    public webPartContext: WebPartContext;
-    public getInventory(): string {
-        return `MockInventoryService: ${new Date().getTime()}`;
-    }
+  public context: WebPartContext;
+  public getInventory(): string {
+    return `MockInventoryService: ${new Date().getTime()}`;
+  }
 }

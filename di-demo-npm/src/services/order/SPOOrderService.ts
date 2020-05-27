@@ -11,7 +11,7 @@ import "@pnp/sp/items";
 
 @injectable()
 export class SPOOrderService implements IOrderService {
-  public webPartContext: WebPartContext;
+  public context: WebPartContext;
   private _invnetoryService: IInventoryService;
   constructor(
     @inject(ServiceFactory.getServiceFactoryName('IInventoryService'))

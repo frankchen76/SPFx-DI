@@ -1,4 +1,4 @@
 export interface IServiceBase<T> {
-    webPartContext: T;
+    context: T;
 }
 

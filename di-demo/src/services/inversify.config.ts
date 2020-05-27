@@ -1,5 +1,4 @@
-import { EnvironmentType, Environment } from '@microsoft/sp-core-library';
-import { WebPartContext } from '@microsoft/sp-webpart-base';
+import { EnvironmentType, Environment, ServiceScope } from '@microsoft/sp-core-library';
 
 import 'reflect-metadata';
 import { SPFxContainer } from '@ezcode/spfx-di/lib';
@@ -12,7 +11,7 @@ export const TYPES = {
   OrderService: 'IOrderService'
 };
 
-export const mainContainer = new SPFxContainer<WebPartContext>([
+export const mainContainer = new SPFxContainer<ServiceScope>([
   {
     serviceKey: TYPES.InventoryService,
     serviceItems: [

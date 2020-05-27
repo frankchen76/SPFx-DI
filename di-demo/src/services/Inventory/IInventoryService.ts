@@ -1,6 +1,6 @@
-import { WebPartContext } from "@microsoft/sp-webpart-base";
 import { IServiceBase } from '@ezcode/spfx-di/lib';
+import { ServiceScope } from "@microsoft/sp-core-library";
 
-export interface IInventoryService extends IServiceBase<WebPartContext> {
+export interface IInventoryService extends IServiceBase<ServiceScope> {
   getInventory(): string;
 }
