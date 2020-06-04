@@ -30,6 +30,7 @@ export default class DiDemo extends React.Component<IDiDemoProps, IDiDemoState> 
     this.state = {
       result: "",
       loading: false,
+      description: props.description
     };
   }
 

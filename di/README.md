@@ -7,8 +7,8 @@
 ## Usage
 1. reference @ezcode/spfx-di by using
    * `npm link @ezcode/spfx-di` if you use npm link 
-     * Go to spfx-di/di folder and run `npm link` to host the lib at source folder.
-     * Go to spfx-di/di-demo folder and run `npm link @ezcode/spfx-di` to reference the lib from source folder. 
+     * Go to spfx-di/di folder and run `npm link` to host the lib at source folder. When you complete the testing, run `npm unlink` to remove the host link
+     * Go to spfx-di/di-demo folder and run `npm link @ezcode/spfx-di` to reference the lib from source folder. When you complete the test, run `npm unlink @ezcode/spfx-di` to remove the link to the source. 
    * `npm install @ezcode/spfx-di --save` if you use it from npm repository. 
 2. install the following required npm packages: 
 ```bash
@@ -300,3 +300,5 @@ export default class DiDemo extends React.Component<IDiDemoProps, IDiDemoState> 
 * 1.0.0: rename to @ezcode/spfx-di
 * 1.0.1: updated homepage to point to right github repo
 * 1.0.2: updated context from WebPartContext to generic in IServiceBase. It allows to pass different type context other than WebPartContext, such as ServiceScope.
+* 1.0.3: fixed a constructor issue.
+* 1.0.4: fixed a issue at constructor

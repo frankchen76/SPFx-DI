@@ -31,7 +31,7 @@ export function InjectAutoInit<T extends { new(...args: any[]): {} }>(constructo
         // hello = "override";
 
         constructor(...args: any[]) {
-            super();
+            super(...args);
             // const metadata = Reflect.getOwnMetadata(CONSTANTS.metadataKey, constructorParameter.prototype);
             // console.log(metadata);
             if (parameters && parameters.length > 0) {
