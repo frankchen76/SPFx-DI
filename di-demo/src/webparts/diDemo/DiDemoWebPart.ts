@@ -22,19 +22,12 @@ export interface IDiDemoWebPartProps {
 export default class DiDemoWebPart extends BaseClientSideWebPart<IDiDemoWebPartProps> {
 
   protected async onInit(): Promise<void> {
-    return super.onInit().then(_ => {
-      sp.setup({
-        spfxContext: this.context
-      });
+    await super.onInit();
+    // other init code may be present
+    //init spfx-di
+    mainContainer.registerContext(this.context.serviceScope);
 
-      mainContainer.registerContext(this.context.serviceScope);
-    });
-    // await super.onInit();
-    // // other init code may be present
-    // //init spfx-di
-    // mainContainer.registerWebPartContext(this.context);
-
-    // sp.setup(this.context);
+    sp.setup(this.context);
   }
 
   public render(): void {
